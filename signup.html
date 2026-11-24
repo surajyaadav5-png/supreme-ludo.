@@ -11,88 +11,55 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
- background:#091329;
- color:white;
- font-family:Arial,sans-serif;
- min-height:100vh;
- display:flex;
- align-items:center;
- justify-content:center;
- padding:20px;
+ background:#091329;color:white;font-family:Arial,sans-serif;
+ min-height:100vh;display:flex;align-items:center;
+ justify-content:center;padding:20px;
 }
 
 .card{
- width:100%;
- max-width:380px;
+ width:100%;max-width:380px;
  background:linear-gradient(145deg,#1d3155,#101a31);
- border:1px solid #b58c43;
- border-radius:18px;
- padding:28px 22px;
+ border:1px solid #b58c43;border-radius:18px;
+ padding:28px 22px;text-align:center;
  box-shadow:0 10px 35px #0009;
- text-align:center;
 }
 
-.logo{
- width:85px;
- height:85px;
- object-fit:contain;
-}
-
-h1{
- color:#f5d58c;
- font-size:25px;
- margin:12px 0 8px;
-}
-
-p{
- color:#9baac5;
- font-size:13px;
- margin-bottom:22px;
-}
+.logo{width:85px;height:85px;object-fit:contain}
+h1{color:#f5d58c;font-size:25px;margin:12px 0 8px}
+p{color:#9baac5;font-size:13px;margin-bottom:22px}
 
 input{
- width:100%;
- padding:14px;
- margin-bottom:14px;
- border:1px solid #695a40;
- border-radius:8px;
- background:#091329;
- color:white;
- outline:none;
- font-size:14px;
+ width:100%;padding:14px;margin-bottom:14px;
+ border:1px solid #695a40;border-radius:8px;
+ background:#091329;color:white;outline:none;font-size:14px;
 }
 
 input:focus{border-color:#f5d58c}
 
 button{
- width:100%;
- padding:14px;
- border:0;
- border-radius:8px;
- background:linear-gradient(120deg,#ffe6a2,#bd8730);
- color:#17213b;
- font-weight:900;
- font-size:15px;
- cursor:pointer;
+ width:100%;padding:14px;border:0;border-radius:8px;
+ font-weight:900;font-size:14px;cursor:pointer;
 }
 
 button:disabled{opacity:.6}
 
-#message{
- margin-top:15px;
- font-size:13px;
- color:#f5d58c;
+.google-btn{
+ background:white;color:#333;
+ display:flex;align-items:center;justify-content:center;
+ gap:10px;margin-bottom:18px;
 }
 
-a{
- color:#f5d58c;
- text-decoration:none;
+.google-btn img{width:19px;height:19px}
+
+.signup-btn{
+ background:linear-gradient(120deg,#ffe6a2,#bd8730);
+ color:#17213b;
 }
 
-.bottom{
- margin-top:22px;
- font-size:13px;
-}
+.divider{color:#8290a9;font-size:12px;margin:17px 0}
+#message{margin-top:15px;font-size:13px;color:#f5d58c}
+a{color:#f5d58c;text-decoration:none}
+.bottom{margin-top:22px;font-size:13px}
 </style>
 </head>
 
@@ -100,40 +67,32 @@ a{
 
 <div class="card">
 
-<img src="logo.jpg" class="logo" alt="Logo">
+<img src="logo.jpg" class="logo" alt="Supreme Ludo">
 
 <h1>SUPREME LUDO</h1>
 <p>👑 Create Your Player Account 👑</p>
 
+<button class="google-btn" id="googleBtn">
+<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="">
+Continue with Google
+</button>
+
+<div class="divider">— OR SIGN UP WITH EMAIL —</div>
+
 <form id="signupForm">
 
-<input
- type="text"
- id="username"
+<input type="text" id="username"
  placeholder="Enter Player Name"
- minlength="3"
- maxlength="20"
- required
->
+ minlength="3" maxlength="20" required>
 
-<input
- type="email"
- id="email"
- placeholder="Enter Email Address"
- autocomplete="email"
- required
->
+<input type="email" id="email"
+ placeholder="Enter Email Address" required>
 
-<input
- type="password"
- id="password"
+<input type="password" id="password"
  placeholder="Create Password (Minimum 8 Characters)"
- minlength="8"
- autocomplete="new-password"
- required
->
+ minlength="8" required>
 
-<button type="submit" id="signupBtn">
+<button type="submit" class="signup-btn" id="signupBtn">
 CREATE ACCOUNT
 </button>
 
@@ -154,22 +113,52 @@ Already have an account?
 
 <script type="module">
 
-import { auth, database } from "./firebase.js";
+import { auth } from "./firebase.js";
 
 import {
- createUserWithEmailAndPassword
+ createUserWithEmailAndPassword,
+ GoogleAuthProvider,
+ signInWithPopup,
+ updateProfile
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
-import {
- ref,
- set
-} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
-
-const form = document.getElementById("signupForm");
 const message = document.getElementById("message");
-const button = document.getElementById("signupBtn");
+const signupBtn = document.getElementById("signupBtn");
+const googleBtn = document.getElementById("googleBtn");
 
-form.addEventListener("submit", async (e)=>{
+function goToDashboard(){
+ window.location.href = "dashboard.html";
+}
+
+// Google Signup
+googleBtn.addEventListener("click",async()=>{
+
+ googleBtn.disabled = true;
+ message.textContent = "Creating your Google account...";
+
+ try{
+
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({prompt:"select_account"});
+
+  await signInWithPopup(auth,provider);
+
+  message.textContent = "Google Account Connected!";
+  goToDashboard();
+
+ }catch(error){
+
+  console.error(error);
+  message.textContent = "Google Signup Failed: " + error.message;
+  googleBtn.disabled = false;
+
+ }
+
+});
+
+// Email Signup
+document.getElementById("signupForm")
+.addEventListener("submit",async(e)=>{
 
  e.preventDefault();
 
@@ -178,62 +167,46 @@ form.addEventListener("submit", async (e)=>{
  const password = document.getElementById("password").value;
 
  if(username.length < 3){
-   message.textContent = "Player name must be at least 3 characters.";
-   return;
+  message.textContent = "Name must have at least 3 characters.";
+  return;
  }
 
  if(password.length < 8){
-   message.textContent = "Password must be at least 8 characters.";
-   return;
+  message.textContent = "Password must have at least 8 characters.";
+  return;
  }
 
- button.disabled = true;
+ signupBtn.disabled = true;
  message.textContent = "Creating your account...";
 
  try{
 
-   const credential = await createUserWithEmailAndPassword(
-     auth,
-     email,
-     password
-   );
+  const credential = await createUserWithEmailAndPassword(
+   auth,email,password
+  );
 
-   const user = credential.user;
+  await updateProfile(credential.user,{
+   displayName:username
+  });
 
-   await set(ref(database, "players/" + user.uid), {
-     username: username,
-     email: user.email,
-     coins: 0,
-     wins: 0,
-     losses: 0,
-     createdAt: Date.now()
-   });
-
-   message.textContent = "Account Created Successfully!";
-
-   window.location.href = "dashboard.html";
+  message.textContent = "Account Created Successfully!";
+  goToDashboard();
 
  }catch(error){
 
-   console.error(error);
+  console.error(error);
 
-   if(error.code === "auth/email-already-in-use"){
-     message.textContent = "This Email Is Already Registered!";
-   }
-   else if(error.code === "auth/weak-password"){
-     message.textContent = "Please Choose A Strong Password!";
-   }
-   else if(error.code === "auth/invalid-email"){
-     message.textContent = "Invalid Email Address!";
-   }
-   else if(error.code === "auth/operation-not-allowed"){
-     message.textContent = "Enable Email/Password Authentication!";
-   }
-   else{
-     message.textContent = "Signup Failed: " + error.message;
-   }
+  if(error.code === "auth/email-already-in-use"){
+   message.textContent = "Email Already Registered! Please Login.";
+  }
+  else if(error.code === "auth/weak-password"){
+   message.textContent = "Choose a Stronger Password.";
+  }
+  else{
+   message.textContent = "Signup Failed: " + error.message;
+  }
 
-   button.disabled = false;
+  signupBtn.disabled = false;
 
  }
 
@@ -242,5 +215,4 @@ form.addEventListener("submit", async (e)=>{
 </script>
 
 </body>
-  </html>
-  
+</html>
