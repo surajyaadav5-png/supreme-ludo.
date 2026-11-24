@@ -11,282 +11,294 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  background:#091329;
-  color:#fff;
-  font-family:Arial,sans-serif;
-  min-height:100vh;
+ background:#091329;
+ color:#fff;
+ font-family:Arial,sans-serif;
+ min-height:100vh;
 }
 
 header{
-  height:75px;
-  padding:0 15px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:#111f3b;
-  border-bottom:1px solid #b58c43;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-.menu{
-  font-size:25px;
-  color:#e8c477;
-  cursor:pointer;
+ min-height:75px;
+ padding:10px 14px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:8px;
+ background:#111f3b;
+ border-bottom:1px solid #b58c43;
+ position:sticky;
+ top:0;
+ z-index:10;
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  font-weight:bold;
-  color:#f6d68c;
-  font-size:15px;
+ display:flex;
+ align-items:center;
+ gap:7px;
+ font-weight:bold;
+ color:#f6d68c;
+ font-size:14px;
 }
 
 .logo img{
-  width:48px;
-  height:48px;
-  object-fit:contain;
+ width:43px;
+ height:43px;
+ object-fit:contain;
 }
 
-.coins{
-  background:linear-gradient(135deg,#f6dc9a,#b98732);
-  color:#17213b;
-  padding:9px 12px;
-  border-radius:25px;
-  font-weight:bold;
-  font-size:13px;
-  box-shadow:0 0 15px #c89b4c55;
+.auth-buttons{
+ display:flex;
+ align-items:center;
+ gap:7px;
+}
+
+.auth-buttons a{
+ text-decoration:none;
+ padding:10px 12px;
+ border-radius:20px;
+ font-size:11px;
+ font-weight:900;
+ white-space:nowrap;
+}
+
+.login{
+ color:#f5d58c;
+ border:1px solid #b58c43;
+}
+
+.signup{
+ background:linear-gradient(120deg,#ffe6a2,#bd8730);
+ color:#17213b;
 }
 
 .container{
-  max-width:850px;
-  margin:auto;
-  padding:15px;
+ max-width:850px;
+ margin:auto;
+ padding:15px;
 }
 
 .welcome{
-  text-align:center;
-  padding:18px 0;
+ text-align:center;
+ padding:25px 0;
 }
 
 .welcome h1{
-  color:#f5d58c;
-  font-size:25px;
-  letter-spacing:2px;
-  text-shadow:0 0 15px #d5a64c66;
+ color:#f5d58c;
+ font-size:27px;
+ letter-spacing:2px;
+ text-shadow:0 0 15px #d5a64c66;
 }
 
 .welcome p{
-  color:#9baac5;
-  font-size:12px;
-  margin-top:7px;
+ color:#9baac5;
+ font-size:12px;
+ margin-top:9px;
+}
+
+.wallet{
+ margin:10px 0 25px;
+ padding:18px;
+ background:linear-gradient(145deg,#1d3155,#101c35);
+ border:1px solid #b58c43;
+ border-radius:14px;
+ text-align:center;
+ box-shadow:0 5px 20px #0005;
+}
+
+.wallet h3{
+ color:#f5d58c;
+ font-size:15px;
+}
+
+.wallet h2{
+ color:#ffe6a2;
+ font-size:27px;
+ margin:12px 0;
+}
+
+.wallet p{
+ color:#9baac5;
+ font-size:11px;
 }
 
 .game-heading{
-  font-size:19px;
-  margin:18px 0;
-  color:#f4d38c;
+ font-size:19px;
+ margin:22px 0;
+ color:#f4d38c;
 }
 
 .games{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:13px;
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:13px;
 }
 
 .game-card{
-  background:linear-gradient(145deg,#1d3155,#101c35);
-  border:1px solid #6c593c;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 5px 20px #0008;
-  text-align:center;
-  transition:.3s;
-  animation:appear .7s ease;
-}
-
-.game-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 22px #d6ad5c44;
-  border-color:#f1ce80;
+ background:linear-gradient(145deg,#1d3155,#101c35);
+ border:1px solid #6c593c;
+ border-radius:14px;
+ overflow:hidden;
+ box-shadow:0 5px 20px #0008;
+ text-align:center;
 }
 
 .card-top{
-  padding:12px 5px;
-  background:#172947;
-  font-size:12px;
-  color:#f5d58a;
-  font-weight:bold;
+ padding:13px 5px;
+ background:#172947;
+ font-size:12px;
+ color:#f5d58a;
+ font-weight:bold;
 }
 
 .board{
-  margin:13px 8px;
-  min-height:145px;
-  border-radius:10px;
-  background:linear-gradient(135deg,#d8f4fa,#a5d7e8);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  position:relative;
-  overflow:hidden;
+ margin:13px 8px;
+ min-height:145px;
+ border-radius:10px;
+ background:linear-gradient(135deg,#d8f4fa,#a5d7e8);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+ position:relative;
+ overflow:hidden;
 }
 
 .board:before{
-  content:"";
-  position:absolute;
-  width:150px;
-  height:150px;
-  border:2px solid #ffffff88;
-  transform:rotate(45deg);
+ content:"";
+ position:absolute;
+ width:150px;
+ height:150px;
+ border:2px solid #ffffff88;
+ transform:rotate(45deg);
 }
 
 .board-icon{
-  font-size:55px;
-  z-index:1;
-  filter:drop-shadow(0 5px 5px #0005);
+ font-size:55px;
+ z-index:1;
 }
 
 .board-name{
-  z-index:1;
-  margin-top:8px;
-  padding:7px 12px;
-  border-radius:7px;
-  background:#9a5429;
-  border:2px solid #f5c66e;
-  color:white;
-  font-weight:900;
-  font-size:13px;
-  text-shadow:1px 2px 2px #000;
+ z-index:1;
+ margin-top:8px;
+ padding:7px 12px;
+ border-radius:7px;
+ background:#9a5429;
+ border:2px solid #f5c66e;
+ color:white;
+ font-weight:900;
+ font-size:13px;
 }
 
 .game-card button{
-  width:90%;
-  margin:5px 0 14px;
-  padding:12px 5px;
-  border:0;
-  border-radius:8px;
-  background:linear-gradient(120deg,#ffe6a2,#bd8730);
-  color:#17213b;
-  font-weight:900;
-  font-size:12px;
-  cursor:pointer;
-  box-shadow:0 3px 12px #d5a34a55;
-}
-
-.game-card button:active{
-  transform:scale(.96);
+ width:90%;
+ margin:5px 0 14px;
+ padding:12px 5px;
+ border:0;
+ border-radius:8px;
+ background:linear-gradient(120deg,#ffe6a2,#bd8730);
+ color:#17213b;
+ font-weight:900;
+ font-size:12px;
+ cursor:pointer;
 }
 
 .leaderboard{
-  margin-top:30px;
-  background:linear-gradient(145deg,#1a2d4e,#101a31);
-  border:1px solid #b58c43;
-  border-radius:14px;
-  padding:16px;
-  box-shadow:0 5px 20px #0005;
+ margin-top:30px;
+ background:linear-gradient(145deg,#1a2d4e,#101a31);
+ border:1px solid #b58c43;
+ border-radius:14px;
+ padding:16px;
+ box-shadow:0 5px 20px #0005;
 }
 
 .leaderboard h2{
-  text-align:center;
-  color:#f4d38c;
-  margin-bottom:17px;
-  font-size:20px;
+ text-align:center;
+ color:#f4d38c;
+ margin-bottom:17px;
+ font-size:20px;
 }
 
 .player{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:13px 5px;
-  border-bottom:1px solid #ffffff18;
-  font-size:13px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:13px 5px;
+ border-bottom:1px solid #ffffff18;
+ font-size:13px;
 }
 
-.player:last-child{border:0}
-
 .rank{
-  color:#f4d38c;
-  font-weight:bold;
-  margin-right:8px;
+ color:#f4d38c;
+ font-weight:bold;
+ margin-right:8px;
 }
 
 .player-coins{
-  color:#e9c36e;
-  font-weight:bold;
+ color:#e9c36e;
+ font-weight:bold;
 }
 
 .footer{
-  margin-top:30px;
-  padding:22px 15px;
-  background:#111e36;
-  border-top:1px solid #55472f;
+ margin-top:30px;
+ padding:22px 15px;
+ background:#111e36;
+ border-top:1px solid #55472f;
 }
 
 .footer-logo{
-  text-align:center;
-  margin-bottom:18px;
+ text-align:center;
+ margin-bottom:18px;
 }
 
 .footer-logo img{
-  width:75px;
-  height:75px;
-  object-fit:contain;
+ width:75px;
+ height:75px;
+ object-fit:contain;
 }
 
 .footer-links{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:17px;
-  text-align:center;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:17px;
+ text-align:center;
 }
 
 .footer-links a{
-  color:#aebbd1;
-  text-decoration:none;
-  font-size:12px;
+ color:#aebbd1;
+ text-decoration:none;
+ font-size:12px;
 }
 
-.footer-links a:hover{color:#f4d38c}
-
 .copyright{
-  text-align:center;
-  color:#7888a4;
-  font-size:11px;
-  margin-top:25px;
+ text-align:center;
+ color:#7888a4;
+ font-size:11px;
+ margin-top:25px;
 }
 
 .toast{
-  display:none;
-  position:fixed;
-  bottom:25px;
-  left:50%;
-  transform:translateX(-50%);
-  padding:13px 18px;
-  border-radius:9px;
-  background:#f5d58c;
-  color:#14213b;
-  font-weight:bold;
-  font-size:13px;
-  z-index:20;
-  width:max-content;
-  max-width:90%;
-}
-
-@keyframes appear{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
+ display:none;
+ position:fixed;
+ bottom:25px;
+ left:50%;
+ transform:translateX(-50%);
+ padding:13px 18px;
+ border-radius:9px;
+ background:#f5d58c;
+ color:#14213b;
+ font-weight:bold;
+ font-size:13px;
+ z-index:20;
+ width:max-content;
+ max-width:90%;
 }
 
 @media(max-width:380px){
-  .container{padding:10px}
-  .board{min-height:120px}
-  .board-icon{font-size:43px}
-  .game-card button{font-size:10px}
-  .logo{font-size:12px}
+ .logo{font-size:11px}
+ .logo img{width:35px;height:35px}
+ .auth-buttons a{padding:9px 8px;font-size:10px}
+ .board{min-height:120px}
+ .board-icon{font-size:43px}
 }
 </style>
 </head>
@@ -294,104 +306,113 @@ header{
 <body>
 
 <header>
-  <div class="menu" onclick="showMessage('Menu coming soon!')">☰</div>
 
-  <div class="logo">
-    <img src="logo.jpg" alt="Supreme Ludo">
-    <span>SUPREME LUDO</span>
-  </div>
+ <div class="logo">
+  <img src="logo.jpg" alt="Supreme Ludo">
+  <span>SUPREME LUDO</span>
+ </div>
 
-  <div class="coins">🪙 0 COINS</div>
+ <div class="auth-buttons" id="authButtons">
+  <a href="login.html" class="login">LOGIN</a>
+  <a href="signup.html" class="signup">SIGN UP</a>
+ </div>
+
 </header>
 
 <main class="container">
 
-  <section class="welcome">
-    <h1>SUPREME LUDO</h1>
-    <p>👑 PLAY TO WIN • PLAY WITH FRIENDS 👑</p>
-  </section>
+ <section class="welcome">
+  <h1>SUPREME LUDO</h1>
+  <p>👑 PLAY TO WIN • PLAY WITH FRIENDS 👑</p>
+ </section>
 
-  <h2 class="game-heading">🎮 Our Games</h2>
+ <section class="wallet">
+  <h3>👑 MY COINS WALLET</h3>
+  <h2>🪙 <span id="coinBalance">0</span></h2>
+  <p>Login to view your player wallet</p>
+ </section>
 
-  <section class="games">
+ <h2 class="game-heading">🎮 OUR GAMES</h2>
 
-    <div class="game-card">
-      <div class="card-top">🤖 BOT MODE</div>
-      <div class="board">
-        <div class="board-icon">🎲</div>
-        <div class="board-name">LUDO CLASSIC</div>
-      </div>
-      <button onclick="showMessage('BOT GAME COMING SOON!')">
-        PLAY WITH BOT
-      </button>
-    </div>
+ <section class="games">
 
-    <div class="game-card">
-      <div class="card-top">🌐 ONLINE MODE</div>
-      <div class="board">
-        <div class="board-icon">🎲</div>
-        <div class="board-name">LUDO CLASSIC</div>
-      </div>
-      <button onclick="showMessage('ONLINE GAME COMING SOON!')">
-        PLAY ONLINE
-      </button>
-    </div>
+  <div class="game-card">
+   <div class="card-top">🤖 BOT MODE</div>
+   <div class="board">
+    <div class="board-icon">🎲</div>
+    <div class="board-name">LUDO CLASSIC</div>
+   </div>
+   <button onclick="showMessage('BOT GAME COMING SOON!')">
+    PLAY WITH BOT
+   </button>
+  </div>
 
-  </section>
+  <div class="game-card">
+   <div class="card-top">🌐 ONLINE MODE</div>
+   <div class="board">
+    <div class="board-icon">🎲</div>
+    <div class="board-name">LUDO CLASSIC</div>
+   </div>
+   <button onclick="showMessage('ONLINE GAME COMING SOON!')">
+    PLAY ONLINE
+   </button>
+  </div>
 
-  <section class="leaderboard">
-    <h2>🏆 LEADERBOARD</h2>
+ </section>
 
-    <div class="player">
-      <span><span class="rank">🥇 #1</span> Player One</span>
-      <span class="player-coins">0 🪙</span>
-    </div>
+ <section class="leaderboard">
+  <h2>🏆 LEADERBOARD</h2>
 
-    <div class="player">
-      <span><span class="rank">🥈 #2</span> Player Two</span>
-      <span class="player-coins">0 🪙</span>
-    </div>
+  <div class="player">
+   <span><span class="rank">🥇 #1</span> Player One</span>
+   <span class="player-coins">0 🪙</span>
+  </div>
 
-    <div class="player">
-      <span><span class="rank">🥉 #3</span> Player Three</span>
-      <span class="player-coins">0 🪙</span>
-    </div>
+  <div class="player">
+   <span><span class="rank">🥈 #2</span> Player Two</span>
+   <span class="player-coins">0 🪙</span>
+  </div>
 
-    <div class="player">
-      <span><span class="rank">#4</span> Player Four</span>
-      <span class="player-coins">0 🪙</span>
-    </div>
+  <div class="player">
+   <span><span class="rank">🥉 #3</span> Player Three</span>
+   <span class="player-coins">0 🪙</span>
+  </div>
 
-    <div class="player">
-      <span><span class="rank">#5</span> Player Five</span>
-      <span class="player-coins">0 🪙</span>
-    </div>
+  <div class="player">
+   <span><span class="rank">#4</span> Player Four</span>
+   <span class="player-coins">0 🪙</span>
+  </div>
 
-    <p style="text-align:center;color:#8999b3;font-size:11px;margin-top:15px">
-      LIVE RANKINGS COMING SOON
-    </p>
-  </section>
+  <div class="player">
+   <span><span class="rank">#5</span> Player Five</span>
+   <span class="player-coins">0 🪙</span>
+  </div>
+
+  <p style="text-align:center;color:#8999b3;font-size:11px;margin-top:15px">
+   LIVE RANKINGS COMING SOON
+  </p>
+ </section>
 
 </main>
 
 <footer class="footer">
 
-  <div class="footer-logo">
-    <img src="logo.jpg" alt="Supreme Ludo">
-    <p style="color:#e9c36e;font-weight:bold">SUPREME LUDO</p>
-  </div>
+ <div class="footer-logo">
+  <img src="logo.jpg" alt="Supreme Ludo">
+  <p style="color:#e9c36e;font-weight:bold">SUPREME LUDO</p>
+ </div>
 
-  <div class="footer-links">
-    <a href="about.html">About Us</a>
-    <a href="terms.html">Terms & Conditions</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="contact.html">Contact Us</a>
-  </div>
+ <div class="footer-links">
+  <a href="about.html">About Us</a>
+  <a href="terms.html">Terms & Conditions</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="contact.html">Contact Us</a>
+ </div>
 
-  <div class="copyright">
-    © 2026 Supreme Ludo. All Rights Reserved.
-    <p style="margin-top:7px">Made for Ludo Lovers ❤️</p>
-  </div>
+ <div class="copyright">
+  © 2026 Supreme Ludo. All Rights Reserved.
+  <p style="margin-top:7px">Made for Ludo Lovers ❤️</p>
+ </div>
 
 </footer>
 
@@ -399,16 +420,16 @@ header{
 
 <script>
 function showMessage(message){
-  const toast=document.getElementById("toast");
-  toast.textContent=message;
-  toast.style.display="block";
+ const toast=document.getElementById("toast");
+ toast.textContent=message;
+ toast.style.display="block";
 
-  setTimeout(()=>{
-    toast.style.display="none";
-  },2500);
+ setTimeout(()=>{
+  toast.style.display="none";
+ },2500);
 }
 </script>
 
 </body>
-  </html>
-  
+    </html>
+                                   
