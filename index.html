@@ -4,248 +4,289 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101a32">
-<title>Supreme Ludo - Play to Win</title>
+<meta name="theme-color" content="#091329">
+<title>Supreme Ludo | Play To Win</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
+  background:#091329;
+  color:#fff;
   font-family:Arial,sans-serif;
-  background:#0b1222;
-  color:white;
   min-height:100vh;
 }
 
 header{
+  height:75px;
+  padding:0 15px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:14px 6%;
-  background:#101b34;
-  border-bottom:1px solid #b99548;
-  gap:12px;
+  background:#111f3b;
+  border-bottom:1px solid #b58c43;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:bold;
-  font-size:19px;
-  color:#f5d58a;
-}
-
-.brand img{
-  width:48px;
-  height:48px;
-  object-fit:contain;
-  border-radius:10px;
-}
-
-.login-btn{
-  background:linear-gradient(135deg,#f5d58a,#b88732);
-  color:#101a32;
-  padding:11px 20px;
-  border:0;
-  border-radius:8px;
-  font-weight:bold;
+.menu{
+  font-size:25px;
+  color:#e8c477;
   cursor:pointer;
 }
 
-.container{
-  width:92%;
-  max-width:1050px;
-  margin:auto;
-}
-
-.hero{
-  text-align:center;
-  padding:30px 10px 20px;
-}
-
-.hero-logo{
-  width:190px;
-  max-width:65%;
-  height:150px;
-  object-fit:contain;
-  border-radius:12px;
-}
-
-.hero h1{
-  font-size:34px;
-  margin:12px 0 8px;
-  color:#f3d28a;
-  letter-spacing:2px;
-}
-
-.hero p{
-  color:#aebbd1;
-  font-size:14px;
-}
-
-.wallet{
-  margin:22px auto;
-  max-width:450px;
-  padding:17px;
-  border:1px solid #b68a3d;
-  border-radius:14px;
-  background:linear-gradient(120deg,#19294b,#111a30);
+.logo{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-}
-
-.wallet small{
-  color:#b9c5d9;
-}
-
-.wallet h2{
-  color:#f5d58a;
-  margin-top:5px;
-}
-
-.coin{
-  font-size:35px;
-}
-
-.section-title{
-  text-align:center;
-  margin:35px 0 20px;
-  font-size:23px;
-  color:#f4d28a;
-}
-
-.game-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
-.game-card{
-  background:linear-gradient(145deg,#1b2c4d,#111a30);
-  border:1px solid #34496d;
-  border-radius:16px;
-  padding:25px 16px;
-  text-align:center;
-  transition:.2s;
-}
-
-.game-card:hover{
-  transform:translateY(-4px);
-  border-color:#d5ad5b;
-}
-
-.game-icon{
-  font-size:48px;
-  margin-bottom:15px;
-}
-
-.game-card h2{
-  color:#f5d58a;
-  margin-bottom:10px;
-}
-
-.game-card p{
-  color:#aebbd1;
-  font-size:13px;
-  line-height:1.5;
-  min-height:40px;
-}
-
-.play-btn{
-  width:100%;
-  margin-top:18px;
-  padding:13px;
-  background:linear-gradient(120deg,#f5d58a,#bd8d3c);
-  color:#101a32;
+  gap:7px;
   font-weight:bold;
-  border:0;
-  border-radius:9px;
-  cursor:pointer;
+  color:#f6d68c;
   font-size:15px;
 }
 
-.leaderboard{
-  margin:35px 0;
-  background:#121e36;
-  border:1px solid #34496d;
+.logo img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+}
+
+.coins{
+  background:linear-gradient(135deg,#f6dc9a,#b98732);
+  color:#17213b;
+  padding:9px 12px;
+  border-radius:25px;
+  font-weight:bold;
+  font-size:13px;
+  box-shadow:0 0 15px #c89b4c55;
+}
+
+.container{
+  max-width:850px;
+  margin:auto;
+  padding:15px;
+}
+
+.welcome{
+  text-align:center;
+  padding:18px 0;
+}
+
+.welcome h1{
+  color:#f5d58c;
+  font-size:25px;
+  letter-spacing:2px;
+  text-shadow:0 0 15px #d5a64c66;
+}
+
+.welcome p{
+  color:#9baac5;
+  font-size:12px;
+  margin-top:7px;
+}
+
+.game-heading{
+  font-size:19px;
+  margin:18px 0;
+  color:#f4d38c;
+}
+
+.games{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+
+.game-card{
+  background:linear-gradient(145deg,#1d3155,#101c35);
+  border:1px solid #6c593c;
   border-radius:14px;
-  padding:20px;
+  overflow:hidden;
+  box-shadow:0 5px 20px #0008;
+  text-align:center;
+  transition:.3s;
+  animation:appear .7s ease;
+}
+
+.game-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 22px #d6ad5c44;
+  border-color:#f1ce80;
+}
+
+.card-top{
+  padding:12px 5px;
+  background:#172947;
+  font-size:12px;
+  color:#f5d58a;
+  font-weight:bold;
+}
+
+.board{
+  margin:13px 8px;
+  min-height:145px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#d8f4fa,#a5d7e8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+}
+
+.board:before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border:2px solid #ffffff88;
+  transform:rotate(45deg);
+}
+
+.board-icon{
+  font-size:55px;
+  z-index:1;
+  filter:drop-shadow(0 5px 5px #0005);
+}
+
+.board-name{
+  z-index:1;
+  margin-top:8px;
+  padding:7px 12px;
+  border-radius:7px;
+  background:#9a5429;
+  border:2px solid #f5c66e;
+  color:white;
+  font-weight:900;
+  font-size:13px;
+  text-shadow:1px 2px 2px #000;
+}
+
+.game-card button{
+  width:90%;
+  margin:5px 0 14px;
+  padding:12px 5px;
+  border:0;
+  border-radius:8px;
+  background:linear-gradient(120deg,#ffe6a2,#bd8730);
+  color:#17213b;
+  font-weight:900;
+  font-size:12px;
+  cursor:pointer;
+  box-shadow:0 3px 12px #d5a34a55;
+}
+
+.game-card button:active{
+  transform:scale(.96);
+}
+
+.leaderboard{
+  margin-top:30px;
+  background:linear-gradient(145deg,#1a2d4e,#101a31);
+  border:1px solid #b58c43;
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 5px 20px #0005;
 }
 
 .leaderboard h2{
-  color:#f5d58a;
   text-align:center;
-  margin-bottom:20px;
+  color:#f4d38c;
+  margin-bottom:17px;
+  font-size:20px;
 }
 
 .player{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  padding:14px 5px;
-  border-bottom:1px solid #293957;
-  font-size:14px;
+  justify-content:space-between;
+  padding:13px 5px;
+  border-bottom:1px solid #ffffff18;
+  font-size:13px;
 }
 
-.player:last-child{
-  border:0;
-}
+.player:last-child{border:0}
 
 .rank{
-  color:#f5d58a;
+  color:#f4d38c;
   font-weight:bold;
-  margin-right:10px;
+  margin-right:8px;
 }
 
-.score{
-  color:#eac66d;
+.player-coins{
+  color:#e9c36e;
   font-weight:bold;
 }
 
-footer{
+.footer{
+  margin-top:30px;
+  padding:22px 15px;
+  background:#111e36;
+  border-top:1px solid #55472f;
+}
+
+.footer-logo{
   text-align:center;
-  padding:24px 10px;
-  background:#101b34;
-  color:#8494af;
-  font-size:12px;
-  border-top:1px solid #293957;
+  margin-bottom:18px;
 }
 
-footer strong{
-  color:#f5d58a;
+.footer-logo img{
+  width:75px;
+  height:75px;
+  object-fit:contain;
+}
+
+.footer-links{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px;
+  text-align:center;
+}
+
+.footer-links a{
+  color:#aebbd1;
+  text-decoration:none;
+  font-size:12px;
+}
+
+.footer-links a:hover{color:#f4d38c}
+
+.copyright{
+  text-align:center;
+  color:#7888a4;
+  font-size:11px;
+  margin-top:25px;
 }
 
 .toast{
+  display:none;
   position:fixed;
   bottom:25px;
   left:50%;
   transform:translateX(-50%);
-  background:#f5d58a;
-  color:#101a32;
-  padding:13px 20px;
-  border-radius:10px;
+  padding:13px 18px;
+  border-radius:9px;
+  background:#f5d58c;
+  color:#14213b;
   font-weight:bold;
-  display:none;
+  font-size:13px;
+  z-index:20;
   width:max-content;
   max-width:90%;
-  text-align:center;
-  z-index:10;
 }
 
-@media(max-width:600px){
-  header{padding:12px 4%;}
-  .brand{font-size:15px;}
-  .brand img{width:40px;height:40px;}
-  .login-btn{padding:10px 13px;font-size:12px;}
-  .hero h1{font-size:27px;}
-  .game-grid{grid-template-columns:1fr;}
-  .hero-logo{width:165px;height:130px;}
+@keyframes appear{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:380px){
+  .container{padding:10px}
+  .board{min-height:120px}
+  .board-icon{font-size:43px}
+  .game-card button{font-size:10px}
+  .logo{font-size:12px}
 }
 </style>
 </head>
@@ -253,49 +294,45 @@ footer strong{
 <body>
 
 <header>
-  <div class="brand">
-    <img src="logo.jpg" alt="Supreme Ludo Logo">
+  <div class="menu" onclick="showMessage('Menu coming soon!')">☰</div>
+
+  <div class="logo">
+    <img src="logo.jpg" alt="Supreme Ludo">
     <span>SUPREME LUDO</span>
   </div>
-  <button class="login-btn" onclick="showMessage('Login system coming soon!')">
-    LOGIN / SIGNUP
-  </button>
+
+  <div class="coins">🪙 0 COINS</div>
 </header>
 
 <main class="container">
 
-  <section class="hero">
-    <img src="logo.jpg" class="hero-logo" alt="Supreme Ludo">
+  <section class="welcome">
     <h1>SUPREME LUDO</h1>
-    <p>PLAY TO WIN • PLAY WITH FRIENDS</p>
+    <p>👑 PLAY TO WIN • PLAY WITH FRIENDS 👑</p>
   </section>
 
-  <section class="wallet">
-    <div>
-      <small>🪙 YOUR COINS</small>
-      <h2 id="coinBalance">0 COINS</h2>
-    </div>
-    <div class="coin">🪙</div>
-  </section>
+  <h2 class="game-heading">🎮 Our Games</h2>
 
-  <h2 class="section-title">🎮 CHOOSE YOUR GAME</h2>
-
-  <section class="game-grid">
+  <section class="games">
 
     <div class="game-card">
-      <div class="game-icon">🤖</div>
-      <h2>BOT MODE</h2>
-      <p>Practice your Ludo skills by playing against computer opponents.</p>
-      <button class="play-btn" onclick="showMessage('BOT Mode is coming soon!')">
+      <div class="card-top">🤖 BOT MODE</div>
+      <div class="board">
+        <div class="board-icon">🎲</div>
+        <div class="board-name">LUDO CLASSIC</div>
+      </div>
+      <button onclick="showMessage('BOT GAME COMING SOON!')">
         PLAY WITH BOT
       </button>
     </div>
 
     <div class="game-card">
-      <div class="game-icon">🌐</div>
-      <h2>ONLINE MODE</h2>
-      <p>Play Ludo with other players in online multiplayer matches.</p>
-      <button class="play-btn" onclick="showMessage('Online Multiplayer is coming soon!')">
+      <div class="card-top">🌐 ONLINE MODE</div>
+      <div class="board">
+        <div class="board-icon">🎲</div>
+        <div class="board-name">LUDO CLASSIC</div>
+      </div>
+      <button onclick="showMessage('ONLINE GAME COMING SOON!')">
         PLAY ONLINE
       </button>
     </div>
@@ -303,46 +340,71 @@ footer strong{
   </section>
 
   <section class="leaderboard">
-    <h2>🏆 TOP PLAYERS</h2>
+    <h2>🏆 LEADERBOARD</h2>
 
     <div class="player">
-      <span><span class="rank">#1</span> Player One</span>
-      <span class="score">-- COINS</span>
+      <span><span class="rank">🥇 #1</span> Player One</span>
+      <span class="player-coins">0 🪙</span>
     </div>
 
     <div class="player">
-      <span><span class="rank">#2</span> Player Two</span>
-      <span class="score">-- COINS</span>
+      <span><span class="rank">🥈 #2</span> Player Two</span>
+      <span class="player-coins">0 🪙</span>
     </div>
 
     <div class="player">
-      <span><span class="rank">#3</span> Player Three</span>
-      <span class="score">-- COINS</span>
+      <span><span class="rank">🥉 #3</span> Player Three</span>
+      <span class="player-coins">0 🪙</span>
     </div>
 
-    <p style="text-align:center;color:#8494af;font-size:12px;margin-top:15px;">
-      Live leaderboard will appear after Firebase integration.
+    <div class="player">
+      <span><span class="rank">#4</span> Player Four</span>
+      <span class="player-coins">0 🪙</span>
+    </div>
+
+    <div class="player">
+      <span><span class="rank">#5</span> Player Five</span>
+      <span class="player-coins">0 🪙</span>
+    </div>
+
+    <p style="text-align:center;color:#8999b3;font-size:11px;margin-top:15px">
+      LIVE RANKINGS COMING SOON
     </p>
   </section>
 
 </main>
 
-<footer>
-  <strong>SUPREME LUDO</strong>
-  <p style="margin-top:8px;">© 2026 Supreme Ludo. All Rights Reserved.</p>
-  <p style="margin-top:5px;">Made for Ludo Lovers ❤️</p>
+<footer class="footer">
+
+  <div class="footer-logo">
+    <img src="logo.jpg" alt="Supreme Ludo">
+    <p style="color:#e9c36e;font-weight:bold">SUPREME LUDO</p>
+  </div>
+
+  <div class="footer-links">
+    <a href="about.html">About Us</a>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="copyright">
+    © 2026 Supreme Ludo. All Rights Reserved.
+    <p style="margin-top:7px">Made for Ludo Lovers ❤️</p>
+  </div>
+
 </footer>
 
 <div class="toast" id="toast"></div>
 
 <script>
 function showMessage(message){
-  const toast = document.getElementById("toast");
-  toast.textContent = message;
-  toast.style.display = "block";
+  const toast=document.getElementById("toast");
+  toast.textContent=message;
+  toast.style.display="block";
 
   setTimeout(()=>{
-    toast.style.display = "none";
+    toast.style.display="none";
   },2500);
 }
 </script>
